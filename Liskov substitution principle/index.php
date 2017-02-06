@@ -1,13 +1,8 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 /*
-** Open for Extension and Close for Modification
-** One Class should be extended rather than modifying it, 
-** Objects or entities should be open for extension, but closed for modification
-** Here Sum method of AreaCalculator Class should be extended rather than modifing it for another Area of different Shaped Class 
+** Liskov Substitution principle
+** All this is stating is that every subclass/derived class should be substitutable for their base/parent class. 
 */
 
 Class Circle{
@@ -73,6 +68,41 @@ Class AreaCalculator{
 	}
 }
 
+class VolumeCalculator extends AreaCalulator {
+    public function __construct($shapes = array()) {
+        parent::__construct($shapes);
+    }
+
+    public function sum() {
+        return $summedData;
+    }
+}
+
+class SumCalculatorOutputter {
+    protected $calculator;
+
+    public function __constructor(AreaCalculator $calculator) {
+        $this->calculator = $calculator;
+    }
+
+    public function JSON() {
+        $data = array(
+            'sum' => $this->calculator->sum();
+        );
+
+        return json_encode($data);
+    }
+
+    public function HTML() {
+        return implode('', array(
+            '<h1>',
+                'Sum of the areas of provided shapes: ',
+                $this->calculator->sum(),
+            '</h1>'
+        ));
+    }
+}
+
 $shapes = array(
     new Circle(2),
     new Square(5),
@@ -80,6 +110,9 @@ $shapes = array(
     new Triangle(4,5)
 );
 
-$areas = new AreaCalculator($shapes);
 
-echo $areas->output();
+$areas = new AreaCalculator($shapes);
+$volumes = new VolumeCalculator($shapes);
+
+$output = new SumCalculatorOutputter($areas);
+$output2 = new SumCalculatorOutputter($volumes);
