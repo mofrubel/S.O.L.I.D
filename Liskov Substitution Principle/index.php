@@ -5,7 +5,7 @@
 ** All this is stating is that every subclass/derived class should be substitutable for their base/parent class. 
 */
 
-Class Circle{
+Class Circle {
 	public $radius;
 
 	public function __construct($radius) {
@@ -17,7 +17,7 @@ Class Circle{
 	}
 }
 
-Class Square{
+Class Square {
 	public $length;
 
 	public function __construct($length) {
@@ -29,7 +29,7 @@ Class Square{
 	}
 }
 
-Class Triangle{
+Class Triangle {
 	public $base;
 	public $height;
 
@@ -43,7 +43,7 @@ Class Triangle{
 	}
 }
 
-Class AreaCalculator{
+Class AreaCalculator {
 	protected $shapes;
 
 	public function __construct($shapes = array()) {

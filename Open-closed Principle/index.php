@@ -7,7 +7,7 @@
 ** Here Sum method of AreaCalculator Class should be extended rather than modifing it for another Area of different Shaped Class 
 */
 
-Class Circle{
+Class Circle {
 	public $radius;
 
 	public function __construct($radius) {
@@ -19,7 +19,7 @@ Class Circle{
 	}
 }
 
-Class Square{
+Class Square {
 	public $length;
 
 	public function __construct($length) {
@@ -31,7 +31,7 @@ Class Square{
 	}
 }
 
-Class Triangle{
+Class Triangle {
 	public $base;
 	public $height;
 
@@ -45,7 +45,7 @@ Class Triangle{
 	}
 }
 
-Class AreaCalculator{
+Class AreaCalculator {
 	protected $shapes;
 
 	public function __construct($shapes = array()) {

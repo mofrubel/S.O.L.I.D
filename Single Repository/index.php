@@ -6,7 +6,7 @@
 ** Here Square, Circle and AreaCalculator Class serve their own purposes
 */
 
-Class Circle{
+Class Circle {
 	public $radius;
 
 	public function __construct($radius) {
@@ -14,7 +14,7 @@ Class Circle{
 	}
 }
 
-Class Square{
+Class Square {
 	public $length;
 
 	public function __construct($length) {
@@ -22,7 +22,7 @@ Class Square{
 	}
 }
 
-Class AreaCalculator{
+Class AreaCalculator {
 	protected $shapes;
 
 	public function __construct($shapes = array()) {
